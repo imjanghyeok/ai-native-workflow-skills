@@ -132,6 +132,8 @@ async function ask(text, args, resume) {
   const requestId = request(text, 'harness-before-codex');
   const command = option(args, '--codex') || 'codex';
   const argv = ['exec'];
+  const model = option(args, '--model');
+  if (model) argv.push('-m', model);
   if (args.includes('--workspace-write')) argv.push('--sandbox', 'workspace-write');
   if (resume) argv.push('resume', resume);
   argv.push('--json', '-');
@@ -141,6 +143,10 @@ async function ask(text, args, resume) {
 
 async function main(args) {
   const operation = args[0];
+  if (args.includes('--help') || args.includes('-h')) {
+    console.log('Usage: node tools/worklog.cjs request|note|run|ask|chat\nrequest: --file PATH or stdin\nnote: --request ID --actor user|ai --type plan|decision|expectation|observation|reflection|handoff; JSON stdin\nrun: --request ID -- COMMAND ARGS\nask/chat: --model ACTUALLY_SUPPORTED_ALLOWED_MODEL --resume SESSION_ID --workspace-write (optional)\nchat: enter text, /send to submit, /exit to leave\nNo model option means inherit CLI defaults; confirm they are allowed before use. See docs/WORKFLOW.md.');
+    return 0;
+  }
   if (operation === 'request') {
     const source = option(args, '--file');
     const text = source ? fs.readFileSync(source, 'utf8') : await stdin();

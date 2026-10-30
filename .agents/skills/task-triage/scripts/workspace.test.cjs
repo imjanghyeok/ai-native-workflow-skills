@@ -66,6 +66,7 @@ test('request text, actor decision and real successful command are linked', t =>
 
 test('failed commands, missing executables and invalid notes are not successes', t => {
   const f = fixture(t);
+  assert.equal(f.run(['--help']).status, 0);
   const requestId = f.run(['request'], '실패도 기록').stdout.trim();
   assert.equal(f.run(['note', '--request', requestId, '--actor', 'ai', '--type', 'decision'], '{}').status, 2);
   assert.equal(f.run(['run', '--request', requestId, '--', process.execPath, '-e', 'process.exit(7)']).status, 7);
@@ -90,7 +91,7 @@ process.stdin.on('end', () => {
   console.log(JSON.stringify({type:'test_args',args:process.argv.slice(2)}));
 });\n`);
   fs.chmodSync(fake, 0o700);
-  const run = f.run(['chat', '--codex', fake], '첫 요청\n/send\n두 번째\n/send\n/exit\n');
+  const run = f.run(['chat', '--codex', fake, '--model', 'allowed-test-model'], '첫 요청\n/send\n두 번째\n/send\n/exit\n');
   assert.equal(run.status, 0, run.stderr);
   const events = f.events();
   const requests = events.filter(x => x.type === 'request');
@@ -99,6 +100,9 @@ process.stdin.on('end', () => {
   assert.equal(requests[0].capture, 'harness-before-codex');
   assert.equal(starts[1].argv.includes('resume'), true);
   assert.equal(starts[1].argv.includes('session-test-1'), true);
+  for (const item of starts) {
+    assert.equal(item.argv[item.argv.indexOf('-m') + 1], 'allowed-test-model');
+  }
   for (const item of events.filter(x => x.type === 'run_finished')) {
     const output = fs.readFileSync(path.join(f.root, item.stdout), 'utf8');
     assert.equal(output.includes('excluded test text'), false);

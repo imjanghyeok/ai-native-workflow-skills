@@ -1,0 +1,4 @@
+interface:
+  display_name: "README·요구사항 분석"
+  short_description: "README의 필수 조건·출처·완료 기준·모호한 질문을 정리합니다."
+  default_prompt: "$readme-to-requirements 원본 README와 관련 파일을 읽고 개발 전 요구사항과 질문을 정리해 줘."

@@ -1,0 +1,12 @@
+# Keep this public repository limited to reusable skills and guides.
+*
+!/.gitignore
+!/README.md
+!/.agents/
+!/.agents/skills/
+!/.agents/skills/**/
+!/.agents/skills/**/SKILL.md
+!/.agents/skills/**/references/*.md
+!/.agents/skills/**/agents/openai.yaml
+!/templates/
+!/templates/AGENTS.fragment.md

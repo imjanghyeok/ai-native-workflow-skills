@@ -1,0 +1,4 @@
+interface:
+  display_name: "구현·검증·설명 근거"
+  short_description: "요구사항과 설계를 이어받아 구현하고 실제 검증 근거와 한계를 남깁니다."
+  default_prompt: "$implement-and-verify README와 요구사항·설계를 따라 구현하고 실제 실행한 검증 근거를 남겨 줘."

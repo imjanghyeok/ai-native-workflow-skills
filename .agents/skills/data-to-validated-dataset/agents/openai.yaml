@@ -1,0 +1,4 @@
+interface:
+  display_name: "데이터 탐색·가공·검증"
+  short_description: "원본의 구조와 업무 규칙을 확인하고 추출·가공 결과를 근거와 함께 검증합니다."
+  default_prompt: "$data-to-validated-dataset 과제의 입력 자료와 데이터 계약을 확인하고 요청 범위에 맞게 탐색·가공·대조 근거를 정리해 줘."

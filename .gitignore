@@ -8,5 +8,16 @@
 !/.agents/skills/**/SKILL.md
 !/.agents/skills/**/references/*.md
 !/.agents/skills/**/agents/openai.yaml
+!/.agents/skills/implement-and-verify/assets/
+!/.agents/skills/implement-and-verify/assets/js-starter/
+!/.agents/skills/implement-and-verify/assets/js-starter/README.md
+!/.agents/skills/implement-and-verify/assets/js-starter/core.cjs
+!/.agents/skills/implement-and-verify/assets/js-starter/cli.cjs
+!/.agents/skills/implement-and-verify/assets/js-starter/server.cjs
+!/.agents/skills/implement-and-verify/assets/js-starter/index.html
+!/.agents/skills/implement-and-verify/assets/js-starter/style.css
+!/.agents/skills/implement-and-verify/assets/js-starter/app.js
+!/.agents/skills/implement-and-verify/assets/js-starter/input.example.json
+!/.agents/skills/implement-and-verify/assets/js-starter/test.cjs
 !/templates/
 !/templates/AGENTS.fragment.md

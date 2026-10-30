@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript 작업 시작본</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>JSON 처리 시작본</h1>
+    <p>입력·API·결과 연결을 확인하는 예제입니다. 실제 업무 규칙은 core.cjs에 구현하세요.</p>
+    <form id="form">
+      <label for="input">입력 JSON</label>
+      <textarea id="input" rows="10" spellcheck="false">{"records":[{"id":"0012","value":0}]}</textarea>
+      <button id="run" type="submit">실행</button>
+    </form>
+    <p id="status" role="status" aria-live="polite">실행 대기</p>
+    <pre id="result" aria-label="실행 결과"></pre>
+  </main>
+</body>
+</html>

@@ -19,6 +19,12 @@
 !/.agents/skills/implement-and-verify/assets/js-starter/app.js
 !/.agents/skills/implement-and-verify/assets/js-starter/input.example.json
 !/.agents/skills/implement-and-verify/assets/js-starter/test.cjs
+!/.agents/skills/task-triage/scripts/
+!/.agents/skills/task-triage/scripts/prepare-workspace.cjs
+!/.agents/skills/task-triage/scripts/workspace.test.cjs
+!/.agents/skills/task-triage/assets/
+!/.agents/skills/task-triage/assets/workspace-tools/
+!/.agents/skills/task-triage/assets/workspace-tools/worklog.cjs
 !/templates/
 !/templates/AGENTS.fragment.md
 !/templates/EXAM-GUARD.fragment.md

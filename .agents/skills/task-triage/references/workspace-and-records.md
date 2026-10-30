@@ -6,7 +6,7 @@
 
 ## 자동 준비 도구
 
-[prepare-workspace.cjs](../scripts/prepare-workspace.cjs)는 표준 Node 기능만 사용한다. 실제 과제 위치를 확인한 뒤 `--target`을 지정한다. 기본은 기존 프로젝트용 문서/기록 도구만 추가하는 `--starter none`이다. 새 JS 과제라면 `--starter js`로 예제 앱도 만든다.
+[prepare-workspace.cjs](../scripts/prepare-workspace.cjs)는 표준 Node 기능만 사용한다. 실제 과제 위치를 확인한 뒤 `--target`을 지정한다. 기본은 문서/기록 도구만 추가하는 `--starter none`이다. 기존 프로젝트·CLI·데이터·문서 과제는 none을 쓰고 실제로 새 웹앱이 필요한 과제에만 `--starter js`로 예제 앱을 만든다. JS라는 이유만으로 웹 서버·화면·HTTP 테스트를 추가하지 않는다.
 
 ```sh
 node /home/user/exam-kit/.agents/skills/task-triage/scripts/prepare-workspace.cjs --target /실제/과제/경로 --starter js
@@ -44,6 +44,10 @@ node /home/user/exam-kit/.agents/skills/task-triage/scripts/prepare-workspace.cj
 ### 일반 Codex 대화 + AI 기록
 
 Codex에게 각 요청 시작 시 원문을 기록하고 `requestId`를 발급받도록 지시한다. 계획·판단·예상·관찰·검증을 그 ID에 연결한다. 이는 AI의 전사/기록이며 모든 사용자 키 입력을 독립적으로 포착하는 기능이 아니다. 빠뜨린 요청이나 전사 정확성은 실제 대화와 대조한다.
+
+원문을 요약·번역·생략하지 않는다. AI가 옮긴 입력은 `request --recorded-by ai`로 표시한다. 통합 요청을 공개 첫 블록에서 clone 경로만 바꿨다면 `request --bootstrap 실제clone경로`로 블록 전체를 재구성할 수 있다. 이 경우 capture는 bootstrap-template-reconstruction이며, 템플릿 파일·해시·적용 범위를 남긴다. 사용자 편집이나 다른 메시지까지 실제 캡처한 기록으로 취급하지 않는다.
+
+구조 생성 직후 plan, 제품 코드 전에 실제 요구사항·설계와 decision·expectation을 남긴다. 실행은 run으로 기록하고 이후 observation을 연결한다. 소급한 계획을 실행 전 기록처럼 쓰지 않는다. 최종 정리는 retrospective로 구분하고 승인 대기 없이 다음 단계로 이어간다.
 
 ### 기록기를 거친 원문 선저장
 

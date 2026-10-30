@@ -24,6 +24,10 @@ Codex에게 ‘각 요청을 시작할 때 요청 원문을 worklog에 기록하
 
     node tools/worklog.cjs request --file request.txt
 
+AI가 전사한 파일/입력은 --recorded-by ai로 표시하고, 원문을 요약·번역·생략하지 않는다. 통합 프롬프트를 clone 경로만 바꿔 사용했다면 request --bootstrap /home/user/exam-kit으로 공개 README의 첫 text 블록 전체를 읽어 같은 경로로 치환한 기록을 만들 수 있다. capture=bootstrap-template-reconstruction으로 남으며 실제 대화나 수정한 내용까지 수집한 것은 아니다. 원문 주석을 본문에 섞어 넣지 않고 source/capture/recordedBy 메타데이터로 구분한다.
+
+구조 생성 직후 requestId와 plan을 기록한다. 제품 코드를 작성하기 전에 요구사항·설계를 실제로 채우고 decision과 expectation 또는 expected 필드를 남긴다. 명령은 run으로 기록하고 실행 뒤 observation을 연결한다. 나중에 작성한 설명을 앞서 생각한 것처럼 소급하지 않으며 뒤늦은 정리는 retrospective라고 표시한다. 이 순서는 사용자 승인을 매번 기다리라는 뜻이 아니다.
+
 ## 원문을 먼저 저장한 뒤 Codex로 보낼 때
 
     node tools/worklog.cjs chat

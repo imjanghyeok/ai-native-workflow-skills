@@ -64,6 +64,22 @@ test('request text, actor decision and real successful command are linked', t =>
   assert.match(fs.readFileSync(path.join(f.root, finish.stdout), 'utf8'), /actual=0012/);
 });
 
+test('bootstrap reconstruction preserves the full template and labels its source', t => {
+  const f = fixture(t);
+  const kit = path.join(f.base, 'public-kit'); fs.mkdirSync(kit);
+  const original = '전체 요청\n참고 /home/user/exam-kit\n요약하거나 번역하지 마.';
+  fs.writeFileSync(path.join(kit, 'README.md'), '# 준비물\n\n```text\n' + original + '\n```\n');
+  const run = f.run(['request', '--bootstrap', kit]);
+  assert.equal(run.status, 0, run.stderr);
+  const entry = f.events()[0];
+  assert.equal(entry.capture, 'bootstrap-template-reconstruction');
+  assert.equal(entry.recordedBy, 'template-tool');
+  assert.equal(fs.readFileSync(path.join(f.root, entry.textFile), 'utf8'), original.replaceAll('/home/user/exam-kit', kit));
+  const transcription = f.run(['request', '--recorded-by', 'ai'], '원문 전사');
+  assert.equal(transcription.status, 0);
+  assert.equal(f.events()[1].recordedBy, 'ai');
+});
+
 test('failed commands, missing executables and invalid notes are not successes', t => {
   const f = fixture(t);
   assert.equal(f.run(['--help']).status, 0);

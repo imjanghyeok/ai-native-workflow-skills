@@ -32,12 +32,12 @@ function event(value) {
   return entry;
 }
 
-function request(text, capture) {
+function request(text, capture, details = {}) {
   if (!text.trim()) throw new Error('request is empty');
   const requestId = id('request');
   const file = path.join(directory('requests'), `${requestId}.txt`);
   fs.writeFileSync(file, text, { flag: 'wx', mode: 0o600 });
-  event({ type: 'request', requestId, actor: 'user', capture,
+  event({ type: 'request', requestId, actor: 'user', capture, ...details,
     textFile: path.relative(ROOT, file), sha256: crypto.createHash('sha256').update(text).digest('hex') });
   return requestId;
 }
@@ -129,7 +129,7 @@ async function execute(command, args, requestId, mode, input) {
 }
 
 async function ask(text, args, resume) {
-  const requestId = request(text, 'harness-before-codex');
+  const requestId = request(text, 'harness-before-codex', { recordedBy: 'harness' });
   const command = option(args, '--codex') || 'codex';
   const argv = ['exec'];
   const model = option(args, '--model');
@@ -144,13 +144,27 @@ async function ask(text, args, resume) {
 async function main(args) {
   const operation = args[0];
   if (args.includes('--help') || args.includes('-h')) {
-    console.log('Usage: node tools/worklog.cjs request|note|run|ask|chat\nrequest: --file PATH or stdin\nnote: --request ID --actor user|ai --type plan|decision|expectation|observation|reflection|handoff; JSON stdin\nrun: --request ID -- COMMAND ARGS\nask/chat: --model ACTUALLY_SUPPORTED_ALLOWED_MODEL --resume SESSION_ID --workspace-write (optional)\nchat: enter text, /send to submit, /exit to leave\nNo model option means inherit CLI defaults; confirm they are allowed before use. See docs/WORKFLOW.md.');
+    console.log('Usage: node tools/worklog.cjs request|note|run|ask|chat\nrequest: --bootstrap PUBLIC_KIT or --file PATH or stdin; --recorded-by user|ai|unspecified\nnote: --request ID --actor user|ai --type plan|decision|expectation|observation|reflection|handoff; JSON stdin\nrun: --request ID -- COMMAND ARGS\nask/chat: --model ACTUALLY_SUPPORTED_ALLOWED_MODEL --resume SESSION_ID --workspace-write (optional)\nchat: enter text, /send to submit, /exit to leave\nNo model option means inherit CLI defaults; confirm they are allowed before use. See docs/WORKFLOW.md.');
     return 0;
   }
   if (operation === 'request') {
+    const bootstrap = option(args, '--bootstrap');
+    if (bootstrap) {
+      const kit = path.resolve(bootstrap);
+      const readme = path.join(kit, 'README.md');
+      const match = fs.readFileSync(readme, 'utf8').match(/```text\r?\n([\s\S]*?)\r?\n```/);
+      if (!match) throw new Error('public README bootstrap prompt not found');
+      const text = match[1].replaceAll('/home/user/exam-kit', kit);
+      console.log(request(text, 'bootstrap-template-reconstruction', { recordedBy: 'template-tool',
+        sourceFile: readme, templateSha256: crypto.createHash('sha256').update(match[1]).digest('hex'),
+        scope: 'README first text block plus clone path; not a capture of custom edits or other conversation' }));
+      return 0;
+    }
+    const recordedBy = option(args, '--recorded-by') || 'unspecified';
+    if (!['user', 'ai', 'unspecified'].includes(recordedBy)) throw new Error('invalid --recorded-by');
     const source = option(args, '--file');
     const text = source ? fs.readFileSync(source, 'utf8') : await stdin();
-    console.log(request(text, source ? 'explicit-file' : 'explicit-stdin'));
+    console.log(request(text, source ? 'explicit-file' : 'explicit-stdin', { recordedBy }));
     return 0;
   }
   if (operation === 'note') {

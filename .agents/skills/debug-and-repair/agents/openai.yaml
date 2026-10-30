@@ -1,0 +1,4 @@
+interface:
+  display_name: "오류 재현·원인 수정"
+  short_description: "실패 입력으로 원인을 좁히고 기존 계약을 보존하며 회귀 검증합니다."
+  default_prompt: "$debug-and-repair 보고된 오류를 재현하고 원인을 확인한 뒤 요청 범위에서 최소 수정과 회귀 검증을 해 줘."

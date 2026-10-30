@@ -1,0 +1,4 @@
+interface:
+  display_name: "처음 보는 과제 분류"
+  short_description: "과제 원문과 환경을 파악해 필요한 스킬과 최소 작업 순서를 고릅니다."
+  default_prompt: "$task-triage 현재 과제의 목표·필수 제출물·환경·위험을 확인하고 필요한 작업 경로를 골라 줘."

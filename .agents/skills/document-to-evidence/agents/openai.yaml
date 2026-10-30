@@ -1,0 +1,4 @@
+interface:
+  display_name: "문서 검색·근거·요약"
+  short_description: "문서의 버전과 충돌을 구분하고 출처가 연결된 답변과 요약을 만듭니다."
+  default_prompt: "$document-to-evidence 제공 문서의 범위·버전·충돌을 확인하고 요청한 답변이나 요약을 원본 근거와 연결해 줘."

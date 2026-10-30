@@ -21,3 +21,5 @@
 !/.agents/skills/implement-and-verify/assets/js-starter/test.cjs
 !/templates/
 !/templates/AGENTS.fragment.md
+!/templates/EXAM-GUARD.fragment.md
+!/templates/SESSION-HANDOFF.md

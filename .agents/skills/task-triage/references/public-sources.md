@@ -1,6 +1,20 @@
 # 공개 스킬 자료 선별 목록
 
-2026-10-31에 아래 원문을 확인했다. **Codex 기준 목록이며, 외부 코드를 이 저장소에 복사하거나 외부 스킬을 설치한 목록이 아니다.** 현재 시험용 기본 묶음은 자체 스킬과 자체 JS 시작본이다. 추가 자료가 실제로 필요할 때만 허용된 경로로 읽고 도구·스크립트·라이선스를 확인한다.
+## 2026-11-04 · 실제 파일과 고정 커밋 검토
+
+| 저장소·고정 커밋·확인 파일 | 채택 범위 | 제외/조건·라이선스 |
+| --- | --- | --- |
+| [obra/superpowers](https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7), `skills/receiving-code-review/SKILL.md`, `requesting-code-review/SKILL.md`, `dispatching-parallel-agents/SKILL.md`, `LICENSE` | 리뷰 제안의 현재 코드 적합성 확인·기술적 채택/거절 기준만 한국어 재구성 → [review-reception](../../review-and-explain/references/review-reception.md) | MIT, Copyright 2025 Jesse Vincent 고지 보존. 자동 위임·의무 전체 중단·커밋/게시·무거운 계획 실행은 가져오지 않음. 일감 분리는 현재 사용자 요구에 맞춘 자체 설계이며 원문 전체 설치 아님. |
+| [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit/tree/3027f20f3181758385a1bb8c022d4041dfb4de84), `skills/mermaid-diagrams/SKILL.md`, `references/sequence-diagrams.md`, `LICENSE` | 기본 참여자·동기 요청/응답 코드 블록 두 개만 [mermaid-reference](../../code-to-system-map/references/mermaid-reference.md)에 발췌 | MIT, Copyright 2026 Leonardo Flores 고지 보존. 전체 스킬/예제 도메인·외부 Mermaid 편집기·전역 CLI 설치를 가져오지 않음. |
+| [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62), `README.md`, `skills/react-best-practices/SKILL.md`, `skills/web-design-guidelines/SKILL.md` | React/Next 성능과 웹 UI 리뷰 후보 검토만 수행, 복사/번역/설치 없음 | React 스킬/README의 MIT 표기는 확인. 별도 저작권 LICENSE 확보는 못 했으므로 반입 대상으로 선택하지 않음. 원격 가이드 매번 fetch·프레임워크별 대규모 성능 규칙은 기본 기능 UI에 불필요. 실제 React 성능 문제가 있을 때만 필요한 원문 확인. |
+
+이 묶음의 일감·판단·시스템 지도·기능 웹은 자체 작성했고, 위 두 한정 문서만 발췌/재구성했다. **원문 설치 지침이나 도구 권한을 따르는 것이 아니라 출처 자료로 검토했다.** 전체 허가/저작권 문구와 변경 범위는 [THIRD_PARTY_NOTICES](../../../../THIRD_PARTY_NOTICES.md)에 있다. 고정 커밋은 검토 상태를 식별하며 최신 버전이나 모든 전이 의존성까지 보증하지 않는다.
+
+외부 프런트 템플릿/컴포넌트도 사용할 수는 있지만 필요 파일·스택·번들/도구·라이선스·네트워크·수정 범위를 먼저 확인한다. 현재는 기본 HTML 요소/기존 UI로 충분한 기능 경로를 자체 가이드로 두며 외부 UI 코드·완성 앱을 배포하지 않는다. 필요한 일부만 가져오는 방식이 맞지만 문맥/참조/고지를 잘라 잃거나 정책이 다른 전체 스킬을 자동 적용하지 않는다.
+
+## 2026-10-31 · 당시 후보 검토 이력
+
+아래 2026-11-04 선별은 필요한 부분만 반영한 최신 목록이다. 외부 스킬 전체·런처·패키지를 설치하지 않았다. 그 아래 2026-10-31 목록은 당시 검토 이력이며 최신 채택 목록과 구분한다. 추가 자료가 실제로 필요할 때만 허용된 경로로 읽고 도구·스크립트·라이선스를 확인한다.
 
 | 원문 | 확인한 내용·사용 판단 |
 | --- | --- |

@@ -9,7 +9,7 @@ description: 처음 받은 과제의 목표·제출물·환경·위험을 빠르
 
 ## 첫 확인
 
-대회·시험 준비물을 사용하는 경우 [자료 활용 경계](references/exam-boundary.md)를 읽고 실제 최신 안내와 대조한다. 시험 작업의 git push·외부 전송·Codex 업데이트 금지를 분명히 하고 공개 자료의 출처·적용 범위를 남긴다. 여러 세션이 필요하면 [세션 분담 가이드](references/session-plan.md)에 따라 실제 허용·지원 여부와 파일 소유권을 먼저 확인한다.
+대회·시험 준비물을 사용하는 경우 [자료 활용 경계](references/exam-boundary.md)를 읽고 실제 최신 안내와 대조한다. 시험 작업의 git push·외부 전송·Codex 업데이트 금지를 분명히 하고 공개 자료의 출처·적용 범위를 남긴다. 여러 세션이 필요하면 [세션 분담 가이드](references/session-plan.md)에 따라 실제 허용·지원 여부와 파일 소유권을 먼저 확인한다. 이미 사용자가 같은 제공 환경의 동시 사용 허용을 확인했다면 재질문하지 않는다. 문제 원문/답안이 공개 준비물에 섞이지 않도록 [문제 중립성 기준](references/problem-neutrality.md)을 적용한다.
 
 1. 실제 작업 폴더와 참고 스킬 폴더를 구분한다. 현재 파일과 사용자의 변경을 보존한다.
 2. 사용자/입력/완료해야 하는 업무, 필수 제출물·실행 계약·금지 변경·도구 제한·남은 시간을 확인한다. 모르면 미확인으로 표시한다. 대용량 파일을 전부 읽기 전에 관련 경로부터 좁힌다.
@@ -28,6 +28,10 @@ description: 처음 받은 과제의 목표·제출물·환경·위험을 빠르
 | 재현해야 하는 기존 오류 | [debug-and-repair](../debug-and-repair/SKILL.md) |
 | 구성·입출력·알고리즘·검증 계획 | [requirements-to-design](../requirements-to-design/SKILL.md) |
 | 구현과 실제 실행 | [implement-and-verify](../implement-and-verify/SKILL.md) |
+| 병렬 일감·사용자 판단/제안/확정 | [coordinate-workstreams](../coordinate-workstreams/SKILL.md) |
+| 실제 코드·API·데이터·의존성 지도 | [code-to-system-map](../code-to-system-map/SKILL.md) |
+| 필요한 웹 UI/서버 통합·배포 준비 | [functional-web-delivery](../functional-web-delivery/SKILL.md) |
+| 별도 세션 리뷰·설명 근거 점검 | [review-and-explain](../review-and-explain/SKILL.md) |
 
 ## 짧은 작업 지도
 

@@ -143,7 +143,9 @@ async function ask(text, args, resume) {
 
 async function main(args) {
   const operation = args[0];
-  if (args.includes('--help') || args.includes('-h')) {
+  const commandBoundary = operation === 'run' ? args.indexOf('--') : -1;
+  const ownArgs = commandBoundary < 0 ? args : args.slice(0, commandBoundary);
+  if (ownArgs.includes('--help') || ownArgs.includes('-h')) {
     console.log('Usage: node tools/worklog.cjs request|note|run|ask|chat\nrequest: --bootstrap PUBLIC_KIT or --file PATH or stdin; --recorded-by user|ai|unspecified\nnote: --request ID --actor user|ai --type plan|decision|expectation|observation|reflection|handoff; JSON stdin\nrun: --request ID -- COMMAND ARGS\nask/chat: --model ACTUALLY_SUPPORTED_ALLOWED_MODEL --resume SESSION_ID --workspace-write (optional)\nchat: enter text, /send to submit, /exit to leave\nNo model option means inherit CLI defaults; confirm they are allowed before use. See docs/WORKFLOW.md.');
     return 0;
   }

@@ -64,6 +64,23 @@ test('request text, actor decision and real successful command are linked', t =>
   assert.match(fs.readFileSync(path.join(f.root, finish.stdout), 'utf8'), /actual=0012/);
 });
 
+test('child help flags cross the run boundary and retain the real child exit', t => {
+  const f = fixture(t);
+  const request = f.run(['request'], 'forward child help flags');
+  assert.equal(request.status, 0, request.stderr);
+  const requestId = request.stdout.trim();
+  const code = 'require("node:fs").writeFileSync("help-child-ran", "yes"); process.stdout.write(JSON.stringify(process.argv.slice(1))); process.exit(7);';
+  const result = f.run(['run', '--request', requestId, '--', process.execPath, '-e', code, '--', '--help', '-h']);
+  assert.equal(result.status, 7, result.stderr);
+  assert.equal(fs.readFileSync(path.join(f.root, 'help-child-ran'), 'utf8'), 'yes');
+  const finish = f.events().find(x => x.type === 'run_finished');
+  assert.equal(finish.exitCode, 7);
+  assert.deepEqual(JSON.parse(fs.readFileSync(path.join(f.root, finish.stdout), 'utf8')), ['--help', '-h']);
+  const ownHelp = f.run(['run', '--help']);
+  assert.equal(ownHelp.status, 0, ownHelp.stderr);
+  assert.match(ownHelp.stdout, /Usage: node tools\/worklog.cjs/);
+});
+
 test('bootstrap reconstruction preserves the full template and labels its source', t => {
   const f = fixture(t);
   const kit = path.join(f.base, 'public-kit'); fs.mkdirSync(kit);

@@ -33,6 +33,10 @@ description: 처음 받은 과제의 목표·제출물·환경·위험을 빠르
 | 필요한 웹 UI/서버 통합·배포 준비 | [functional-web-delivery](../functional-web-delivery/SKILL.md) |
 | 별도 세션 리뷰·설명 근거 점검 | [review-and-explain](../review-and-explain/SKILL.md) |
 
+## 단계별 실행/재개
+
+사용자가 단계를 나누어 실행하거나 중간부터 이어가길 원하면 [스킬별 단계 실행](references/stage-execution.md)을 적용한다. 기존 근거로 현재 단계를 식별하고 단계·적용 스킬·완료 조건·다음 행동·사용자 판단/확인을 짧게 보여준다. 한 단계 요청은 해당 범위 후 멈추고 통합 요청은 불필요한 승인 없이 이어간다. 완료 단계를 재생성하지 않는다.
+
 ## 짧은 작업 지도
 
 터미널이 느리거나 파일 조작이 불편한 환경에서는 [작업 단위·파일 보존 가이드](references/terminal-workflow.md)를 적용한다. 공개 자료를 더 가져올 필요가 있을 때만 [선별 목록](references/public-sources.md)을 확인하며 일괄 설치하지 않는다.

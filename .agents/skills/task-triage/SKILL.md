@@ -24,6 +24,8 @@ description: 처음 받은 과제의 목표·제출물·환경·위험을 빠르
 | --- | --- |
 | 원문·완료 조건 정리 | [readme-to-requirements](../readme-to-requirements/SKILL.md) |
 | CSV·JSON·로그·표의 탐색/가공 | [data-to-validated-dataset](../data-to-validated-dataset/SKILL.md) |
+| 시간/집단별 수요·처리량·용량·미충족 | [demand-and-workload-analysis](../demand-and-workload-analysis/SKILL.md) |
+| 목표/제약·배분/일정·대안 비교 | [optimize-and-compare-plans](../optimize-and-compare-plans/SKILL.md) |
 | 문서 검색·비교·근거 기반 답변 | [document-to-evidence](../document-to-evidence/SKILL.md) |
 | 재현해야 하는 기존 오류 | [debug-and-repair](../debug-and-repair/SKILL.md) |
 | 구성·입출력·알고리즘·검증 계획 | [requirements-to-design](../requirements-to-design/SKILL.md) |

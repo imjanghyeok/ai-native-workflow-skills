@@ -30,13 +30,13 @@
 ## 1. Sol: 요구사항/데이터만
 
 ```text
-/home/user/exam-kit/.agents/skills/readme-to-requirements/SKILL.md를 적용해 단계1만 실행해 줘. 기존 분석은 재사용하고 원문 요구ID·완료 기준·제출물·가정/미정·현업 질문·내 판단 사항을 정리해. 데이터가 핵심이면 /home/user/exam-kit/.agents/skills/data-to-validated-dataset/SKILL.md로 스키마/키/단위/결합/중복/출처·가공 검증 기준도 확인해. 기존 오류는 debug-and-repair, 문서 중심은 document-to-evidence를 실제 필요 범위만 적용해. 제품 구현 전에 완료 근거와 다음 설계에 필요한 사항을 알려줘.
+/home/user/exam-kit/.agents/skills/readme-to-requirements/SKILL.md를 적용해 단계1만 실행해 줘. 기존 분석은 재사용하고 원문 요구ID·완료 기준·제출물·가정/미정·현업 질문·내 판단 사항을 정리해. 데이터가 핵심이면 /home/user/exam-kit/.agents/skills/data-to-validated-dataset/SKILL.md로 스키마/키/단위/결합/중복/출처·가공 검증 기준도 확인해. 기존 오류는 debug-and-repair, 문서 중심은 document-to-evidence를 실제 필요 범위만 적용해. 수요/작업량·용량이 실제 요구면 /home/user/exam-kit/.agents/skills/demand-and-workload-analysis/SKILL.md로 관측/미관측·피크/동시성·미충족도 정의해. 제품 구현 전에 완료 근거와 다음 설계에 필요한 사항을 알려줘.
 ```
 
 ## 2. Sol: 설계/전역 컨벤션만
 
 ```text
-/home/user/exam-kit/.agents/skills/requirements-to-design/SKILL.md를 적용해 단계2만 실행해 줘. 확정 요구/현재 코드에서 최소 아키텍처·모듈 책임·API/데이터 입출력·오류/권한/저장 경계·의존성과 전역 컨벤션·검증 계획을 정리해. 기존 스택/계약을 우선하고 핵심 미정만 질문해. 제품 구현으로 넘어가지 말고 실제 결정/제안/미정과 다음 구현 준비 항목을 알려줘.
+/home/user/exam-kit/.agents/skills/requirements-to-design/SKILL.md를 적용해 단계2만 실행해 줘. 확정 요구/현재 코드에서 최소 아키텍처·모듈 책임·API/데이터 입출력·오류/권한/저장 경계·의존성과 전역 컨벤션·검증 계획을 정리해. 기존 스택/계약을 우선하고 핵심 미정만 질문해. 운영안 선택/배분/최적화가 요구되면 /home/user/exam-kit/.agents/skills/optimize-and-compare-plans/SKILL.md로 목표·필수/선호 제약·기준안·알고리즘 후보·독립 비교/검증도 준비해. 제품 구현으로 넘어가지 말고 실제 결정/제안/미정과 다음 구현 준비 항목을 알려줘.
 ```
 
 ## 3. Sol: TODO/구현 준비/전달 지시만

@@ -13,8 +13,8 @@
 | 단계 | 주담당·스킬 | 완료를 판단할 근거 |
 | --- | --- | --- |
 | 0 시작/경계 | Sol · task-triage | 실제 과제 경로·최신 제한·제출물·기존 구조 확인, 필요시 최소 구조/기록 준비 |
-| 1 요구/데이터 | Sol · readme-to-requirements, 필요시 data-to-validated-dataset | 원문 R-ID·완료 기준·출처·업무 질문, 데이터 계약과 가공 위험 |
-| 2 설계/컨벤션 | Sol · requirements-to-design | 책임·입출력/오류·권한/저장·의존성·전역 규칙·검증 계획 |
+| 1 요구/데이터 | Sol · readme-to-requirements, 필요시 data-to-validated-dataset·demand-and-workload-analysis | 원문 R-ID·완료 기준·출처·업무 질문, 데이터 계약·수요/처리량/용량과 가공 위험 |
+| 2 설계/컨벤션 | Sol · requirements-to-design, 필요시 optimize-and-compare-plans | 책임/계약·의존성·전역 규칙·목표/제약·기준안/알고리즘·검증 계획 |
 | 3 구현 준비/분담 | Sol · coordinate-workstreams | 요구별 TODO·쓰기 소유·정상/실패/경계 기대값, 준비된 Terra 카드·Sol 독립 작업 |
 | 4 구현/단위 검증 | Terra · implement-and-verify, 웹이면 functional-web-delivery | 실제 구현·관련 테스트·출력/종료·고유 인계. 미정 계약은 Sol로 인계 |
 | 5 통합/흐름 지도 | Sol · implement-and-verify, code-to-system-map | 실제 통합 실행·데이터/권한 흐름·출력 재읽기·모듈/API/의존성 지도 |
